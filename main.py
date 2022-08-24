@@ -14,6 +14,7 @@ moeda = []
 request = requests.get("https://restcountries.com/v3.1/all")
 todos = json.loads(request.content)
 for i in range (0,250):
+    moeda1 = []
     paises.append(todos[i]['name']['common'])
     try:
       capitais.append(todos[i]['capital'][0])
@@ -21,7 +22,10 @@ for i in range (0,250):
       capitais.append("-")
     area.append(todos[i]['area'])
     try:
-      moeda.append(todos[i]['currencies'].keys())
+      dict_moeda = todos[i]['currencies']
+      for key in dict_moeda.keys():
+        moeda1.append(key)
+      moeda.append(moeda1)
     except:
       moeda.append("-")
 
