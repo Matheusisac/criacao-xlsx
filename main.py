@@ -13,7 +13,7 @@ moeda = []
 #Leitura dos dados e armazenamento dos dados em listas
 request = requests.get("https://restcountries.com/v3.1/all")
 todos = json.loads(request.content)
-for i in range (0,250):
+for i in range (0,len(todos)):
     moeda1 = []
     paises.append(todos[i]['name']['common'])
     try:
@@ -61,7 +61,7 @@ currentCell = sheet['D2']
 currentCell.alignment = Alignment(horizontal='center')
 
 #Adicionando os dados lidos
-for i in range (0,250):
+for i in range (0,len(todos)):
   sheet.cell(row=j,column=1).value = paises[i]
   sheet.cell(row=j,column=2).value = capitais[i]
   sheet.cell(row=j,column=3).value = area[i]
