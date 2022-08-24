@@ -21,7 +21,7 @@ for i in range (0,250):
       capitais.append("-")
     area.append(todos[i]['area'])
     try:
-      moeda.append(todos[i]['currencies'].codes)
+      moeda.append(todos[i]['currencies'].keys())
     except:
       moeda.append("-")
 
